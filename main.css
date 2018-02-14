@@ -15,3 +15,19 @@ img{
     font-size: 16px;
     font-weight: 300;
 }
+.titleMargin{
+	margin-top: 15%;
+}
+.card{
+
+	height: : 10em;
+	
+}
+
+.col.s4 {
+    height: 23em;
+    width: 33.3333333333%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}

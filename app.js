@@ -4,6 +4,8 @@ const searchBtn = document.getElementById('search_btn');
 const searchKeyword = document.getElementById('textarea1');
 let searchForText;
 const myPost = document.getElementById('myPost');
+const pro = document.getElementById('pro');
+const header = document.getElementById('titleMargin');
 
 
 searchBtn.addEventListener('click', function(evnt) {
@@ -21,11 +23,23 @@ function getNews() {
   articleRequest.onload = addNews;
   articleRequest.onerror = handleError;
   articleRequest.send();
+  const placeLoader = articleRequest.status;
+  console.log(placeLoader);
+ 
+
+  while (placeLoader !== 200) {
+    pro.classList.remove('hide');  
+    break;  
+  }
 }
 function handleError() {
   console.log('Se ha presentado un error');
 }
+
 function addNews() {
+  pro.classList.add('hide');  
+  header.classList.remove('titleMargin');
+
   const data = JSON.parse(this.responseText);
   console.log(data);
   // acedemos a la propiedad .response de data
@@ -68,7 +82,7 @@ function addNews() {
     let cardContent = document.createElement('div');
     cardContent.className = 'card-content';
     let span = document.createElement('span');
-    span.className = 'card-title activator grey-text text-darken-4';
+    span.className = 'card-title activator grey-text text-darken-4 titlecss';
     span.innerText = title;
     let icon = document.createElement('i');
     icon.className = 'material-icons right';
@@ -77,6 +91,7 @@ function addNews() {
     let paragraf = document.createElement('p');
     let apos = document.createElement('a');
     apos.setAttribute('href', link);
+    apos.setAttribute('target', '_blank');
     apos.innerText = 'See More..';
     paragraf.appendChild(apos);
     cardContent.appendChild(span);
