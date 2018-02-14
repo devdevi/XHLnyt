@@ -1,0 +1,17 @@
+body{
+	font-family: 'Lato', sans-serif ;
+}
+#search_btn {
+	
+	margin-top: 2em;
+	border: .5px solid white;
+}
+img{
+
+	width: 150px;
+	height: 150px;
+}
+.card .card-title {
+    font-size: 16px;
+    font-weight: 300;
+}
